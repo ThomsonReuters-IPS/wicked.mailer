@@ -134,7 +134,10 @@ mailer.handleEvent = function (app, event, done) {
             var to = '"' + userInfo.name + '" <' + userInfo.email + '>';
             if ("admin" == emailData.to)
                 to = '"' + app.mailerGlobals.mailer.adminName + '" <' + app.mailerGlobals.mailer.adminEmail + '>';
-            var subject = app.mailerGlobals.title + ' - ' + emailData.subject+ ' - ' + event.data.group;
+            var subject = app.mailerGlobals.title + ' - ' + emailData.subject ;
+            if(event.data.group){
+              subject = ' - ' +event.data.group;
+            }
 
             var email = {
                 from: from,
