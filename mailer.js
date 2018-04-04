@@ -113,6 +113,15 @@ mailer.handleEvent = function (app, event, done) {
                 name: userInfo.name,
                 email: userInfo.email,
             },
+            api: {
+              id: event.data.apiId
+            },
+            plan: {
+              id: event.data.planId
+            },
+            application: {
+              id: event.data.applicationId
+            },
             verificationLink: verificationLink,
             approvalsLink: approvalsLink,
             portalEmail: app.mailerGlobals.mailer.senderEmail
