@@ -103,7 +103,9 @@ mailer.handleEvent = function (app, event, done) {
             app.mailerGlobals.network.schema + '://' +
             app.mailerGlobals.network.portalHost +
             '/admin/approvals';
-
+        var apiId = event.data.apiId ?  event.data.apiId : '';
+        var planId = event.data.planId ?  event.data.planId : '';
+        var applicationId = event.data.applicationId ?  event.data.applicationId : '';
         var viewData = {
             title: app.mailerGlobals.title,
             user: {
@@ -115,7 +117,10 @@ mailer.handleEvent = function (app, event, done) {
             },
             verificationLink: verificationLink,
             approvalsLink: approvalsLink,
-            portalEmail: app.mailerGlobals.mailer.senderEmail
+            portalEmail: app.mailerGlobals.mailer.senderEmail,
+            apiId: apiId,
+            planId: planId,
+            applicationId: applicationId
         };
         debug(viewData);
 
