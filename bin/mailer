@@ -32,7 +32,8 @@ server.on('listening', onListening);
 
 const wickedOptions = {
     userAgentName: 'wicked.portal-mailer',
-    userAgentVersion: utils.getVersion()
+    userAgentVersion: utils.getVersion(),
+    doNotPollConfigHash: true
 };
 
 async.series([
